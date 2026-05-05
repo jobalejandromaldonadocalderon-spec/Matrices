@@ -21,5 +21,9 @@ public class MatricesTest {
         System.out.println("LA SUMA DE LAS MATRISES A Y B ES");
         obj.sumar();
         obj.imprimir(obj.getSuma());
+        
+        System.out.println("LA RESTA DE LAS MATRISES A Y B ES");
+        obj.resta();
+        obj.imprimir(obj.getResta());
     }
 }

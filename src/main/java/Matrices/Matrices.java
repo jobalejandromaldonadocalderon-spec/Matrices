@@ -40,6 +40,16 @@ private int[][] multi=new int[3][3];
             }
         }
     }
+    
+     public void resta(){
+        for(int i=0; i<3; i++){
+            for(int j=0; j<3; j++){
+               resta[i][j]=matrisA[i][j] - matrisB[i][j];
+                       
+                       
+            }
+        }
+    }
 
     public FastReader getFr() {
         return fr;
