@@ -7,8 +7,8 @@ public class MatricesTest {
         Matrices obj=new Matrices();
         
         System.out.println("INGRESE LA MATRIZ A");
-        obj.llenarMatris(obj.getMatrisA());
-        
+                obj.llenarMatris(obj.getMatrisA());
+                
         System.out.println("INGRESE LA MATRIS");
         obj.llenarMatris(obj.getMatrisB());
         
@@ -25,5 +25,9 @@ public class MatricesTest {
         System.out.println("LA RESTA DE LAS MATRISES A Y B ES");
         obj.resta();
         obj.imprimir(obj.getResta());
+        
+        System.out.println("LA MULTTIPLICACION ES ");
+        obj.multiplicar();
+        obj.imprimir(obj.getMulti());
     }
 }

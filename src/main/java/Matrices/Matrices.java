@@ -1,29 +1,39 @@
 
 package Matrices;
-import java.util.StringTokenizer;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+
+import java.util.Scanner;
 
 public class Matrices {
-    FastReader fr=new FastReader();
-private int[][] matrisA=new int[3][3];
-private int[][] matrisB=new int[3][3];
-private int[][] suma=new int[3][3];
-private int[][] resta=new int[3][3];
-private int[][] multi=new int[3][3];
+   private  Scanner op=new Scanner(System.in);
+private long[][] matrisA=new long[3][3];
+private long[][] matrisB=new long[3][3];
+private long[][] suma=new long[3][3];
+private long[][] resta=new long[3][3];
+private long[][] multi=new long[3][3];
 
-    public void llenarMatris(int[][] matris){
+    public void llenarMatris(long[][] matris){
+        
         for(int i=0; i< 3;i++){
             for(int j=0; j<3; j++){
-                matris[i][j]=fr.nextInt();
+                boolean valido=false;
+                while(!valido){
+                    
+                try{
+                matris[i][j]=Long.parseLong(op.next());
+                valido=true;
+                }catch(Exception e){
+                    System.out.println("ERROR, INGRESE UN NUMERO ENTERO");
+                }
+               
+                }
             }
         }
     }
     
     
-    public void imprimir(int[][] matris){
-        for(int i=0; i<3; i++){
-            for(int j=0; j<3; j++){
+    public void imprimir(long[][] matris){
+        for(int i=0; i<matris.length; i++){
+            for(int j=0; j<matris.length; j++){
                 System.out.print(matris[i][j]+" ");
             }
             System.out.println();
@@ -50,86 +60,68 @@ private int[][] multi=new int[3][3];
             }
         }
     }
+     
+     public void multiplicar(){
+         for(int i=0; i< 3; i++){
+             for(int j=0; j < 3; j++){
+                 int suma=0;
+                 for(int z=0; z<3; z++){
+                     suma+=matrisA[i][z] * matrisB[z][j];
+                 }
+                 multi[i][j]=suma;
+             }
+         }
+     }
 
-    public FastReader getFr() {
-        return fr;
+    public Scanner getOp() {
+        return op;
     }
 
-    public void setFr(FastReader fr) {
-        this.fr = fr;
+    public void setOp(Scanner op) {
+        this.op = op;
     }
 
-    public int[][] getMatrisA() {
+    public long[][] getMatrisA() {
         return matrisA;
     }
 
-    public void setMatrisA(int[][] matrisA) {
+    public void setMatrisA(long[][] matrisA) {
         this.matrisA = matrisA;
     }
 
-    public int[][] getMatrisB() {
+    public long[][] getMatrisB() {
         return matrisB;
     }
 
-    public void setMatrisB(int[][] matrisB) {
+    public void setMatrisB(long[][] matrisB) {
         this.matrisB = matrisB;
     }
 
-    public int[][] getSuma() {
+    public long[][] getSuma() {
         return suma;
     }
 
-    public void setSuma(int[][] suma) {
+    public void setSuma(long[][] suma) {
         this.suma = suma;
     }
 
-    public int[][] getResta() {
+    public long[][] getResta() {
         return resta;
     }
 
-    public void setResta(int[][] resta) {
+    public void setResta(long[][] resta) {
         this.resta = resta;
     }
 
-    public int[][] getMulti() {
+    public long[][] getMulti() {
         return multi;
     }
 
-    public void setMulti(int[][] multi) {
+    public void setMulti(long[][] multi) {
         this.multi = multi;
     }
-    
 
     
-    
-    
-    
-    
-    
-     static class FastReader {
-    BufferedReader br;
-    StringTokenizer st;
-
-    public FastReader() {
-        br = new BufferedReader(new InputStreamReader(System.in));
-    }
-
-    String next() {
-        while (st == null || !st.hasMoreElements()) {
-            try {
-                String line = br.readLine();
-                if (line == null) return null;
-                st = new StringTokenizer(line);
-            } catch (Exception e) {
-                return null;
-            }
-        }
-        return st.nextToken();
-    }
-
-    int nextInt() { return Integer.parseInt(next()); }
-    
-      
-
-}
+     
+     
 }
